@@ -4,7 +4,8 @@ const express = require("express"); //import express framework
 const axios = require("axios"); //import axios framework
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
+require ('dotenv').config();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -12,8 +13,9 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
 app.listen(PORT, () => {
-  console.log("Server is running on http://localhost:3000");
+  console.log("Server is running on http://localhost:${PORT}");
 });
 
 app.get("/", async (req, res) => {
