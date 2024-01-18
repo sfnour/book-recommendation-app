@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.prependListener("index");
+  res.render("index");
 });
 app.listen(PORT, () => {
   console.log("Server is running on http://localhost:3000");
