@@ -1,11 +1,11 @@
 // this file handles sever setup and routes
-
-const express = require("express"); //import express framework
-const axios = require("axios"); //import axios framework
+import { Request, Response } from "express";
+import express from "express"; //import express framework
+import axios from "axios"; //import axios framework
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-require ('dotenv').config();
+require("dotenv").config();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -18,7 +18,7 @@ app.listen(PORT, () => {
   console.log("Server is running on http://localhost:4000");
 });
 
-app.get("/", async (req: Request, res) => {
+app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
       "https://www.googleapis.com/books/v1/volumes?q=node.js"
